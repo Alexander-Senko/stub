@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
 	spec.email       = [ 'Alexander.Senko@gmail.com' ]
 	spec.description = 'Useful for creating stubs with partially defined objects.'
 	spec.summary     = 'Proxy objects with fallbacks.'
-#	spec.homepage    = 'TODO'
+	spec.homepage    = 'https://github.com/softpro/stub'
 	spec.license     = 'MIT'
 
 	spec.files         = `git ls-files`.split($/)
