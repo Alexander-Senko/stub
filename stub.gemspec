@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
 	spec.version     = Stub::VERSION
 	spec.authors     = [ 'Alexander Senko' ]
 	spec.email       = [ 'Alexander.Senko@gmail.com' ]
-	spec.description = %q{TODO: Write a gem description}
-	spec.summary     = %q{TODO: Write a gem summary}
-	spec.homepage    = ''
+	spec.description = 'Useful for creating stubs with partially defined objects.'
+	spec.summary     = 'Proxy objects with fallbacks.'
+#	spec.homepage    = 'TODO'
 	spec.license     = 'MIT'
 
 	spec.files         = `git ls-files`.split($/)
