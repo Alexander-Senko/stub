@@ -13,10 +13,6 @@ module Stub::Template
 				@stub_class.new object, __call_chain__(method_name)
 			end
 
-			def __stub__ method_name, *args
-				"\#{#{__call_chain__ method_name}}"
-			end
-
 			def __call_chain__ method_name
 				[@call_chain, method_name].compact * '.'
 			end
