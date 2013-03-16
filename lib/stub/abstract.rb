@@ -22,6 +22,8 @@ module Stub
 			def method_missing method_name, *args, &block
 				result = @object.send method_name, *args, &block
 
+				method_name = args.shift if [ :send, :__send__ ].include? method_name
+
 				case result
 				when nil
 					raise
