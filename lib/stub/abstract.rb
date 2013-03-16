@@ -19,8 +19,8 @@ module Stub
 		end
 
 		module Methods
-			def method_missing method_name, *args
-				result = @object.send method_name, *args
+			def method_missing method_name, *args, &block
+				result = @object.send method_name, *args, &block
 
 				case result
 				when nil
@@ -28,10 +28,10 @@ module Stub
 				when true, false, String, Numeric, Array, Hash
 					result
 				else
-					__wrap__ result, method_name, *args
+					__wrap__ result, method_name, *args, &block
 				end
 			rescue
-				__stub__ method_name, *args
+				__stub__ method_name, *args, &block
 			end
 
 			def __wrap__ object, *context

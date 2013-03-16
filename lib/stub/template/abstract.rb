@@ -9,7 +9,7 @@ module Stub::Template
 		end
 
 		module Methods
-			def __wrap__ object, method_name, *args
+			def __wrap__ object, method_name, *args, &block
 				@stub_class.new object, __call_chain__(method_name)
 			end
 

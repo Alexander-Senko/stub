@@ -3,7 +3,7 @@ require 'stub/template/abstract'
 module Stub::Template
 	class Prototype < Abstract
 		module Methods
-			def __stub__ method_name, *args
+			def __stub__ method_name, *args, &block
 				"\#{#{__call_chain__ method_name}}"
 			end
 		end
