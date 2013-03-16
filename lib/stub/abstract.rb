@@ -30,7 +30,9 @@ module Stub
 				else
 					__wrap__ result, method_name, *args, &block
 				end
-			rescue
+			rescue => e
+				$stderr.puts "#{e.class}: #{e.message} in #{@object.class}##{method_name}(#{args.map(&:inspect)*','})" if e.message.present?
+
 				__stub__ method_name, *args, &block
 			end
 
