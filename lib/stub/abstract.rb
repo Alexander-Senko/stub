@@ -33,13 +33,21 @@ module Stub
 					__wrap__ result, method_name, *args, &block
 				end
 			rescue => e
-				$stderr.puts "#{e.class}: #{e.message} in #{@object.class}##{method_name}(#{args.map(&:inspect)*','})" if e.message.present?
+				_proxy_error e, method_name, *args, &block if e.message.present?
 
 				__stub__ method_name, *args, &block
 			end
 
+			protected
+
 			def __wrap__ object, *context
 				@stub_class.new object
+			end
+
+			private
+
+			def _proxy_error error, method_name, *args, &block
+				warn "#{error.class}: #{error.message} in #{@object.class}##{method_name}(#{args.map(&:inspect)*','})"
 			end
 		end
 	end
