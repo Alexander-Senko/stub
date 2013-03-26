@@ -14,7 +14,11 @@ module Stub
 
 			singleton_class = self.singleton_class
 
-			methods.each &singleton_class.method(:undef_method)
+			$VERBOSE = $VERBOSE.tap {
+				$VERBOSE = nil
+				methods.each &singleton_class.method(:undef_method)
+			}
+
 			singleton_class.send :include, @stub_class.const_get(:Methods)
 		end
 
